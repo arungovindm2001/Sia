@@ -33,9 +33,10 @@
 }
 
 .word_split span:hover {
-  background-color: black;
+  background-color: yellow;
   padding: 5px;
-  color: white;
+  color: black;
+  font-weight: bold;
 }
 
 .emphasize {
