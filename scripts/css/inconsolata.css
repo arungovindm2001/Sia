@@ -1,0 +1,29 @@
+@font-face {
+    font-family: Inconsolata-Regular;
+    font-style: normal;
+    font-weight: 400;
+    src: url("chrome-extension://__MSG_@@extension_id__/scripts/css/fonts/Inconsolata-Regular.ttf");
+  }
+  
+  p,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  input,
+  ul,
+  span,
+  strong,
+  th,
+  td,
+  ul,
+  li,
+  ol,
+  button {
+    font-family: Inconsolata-Regular !important;
+    word-spacing: 10px;
+  }
+  

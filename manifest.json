@@ -1,0 +1,89 @@
+{
+  "name": "XHacks",
+  "description": "XHacks Product",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "author": "Arun Govind M, Geo Jolly, Gopikrishna K, Rishab Mudliar",
+  "homepage_url": "https://github.com/arungovindm2001/xhacks",
+  "short_name": "XHacks",
+  "permissions": ["activeTab", "storage", "contextMenus"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+
+      "css": ["contentCss.css"],
+      "js": [
+        "jquery-3.1.0.min.js",
+        "jquery.lettering-0.6.1.min.js",
+        "contentScript.js"
+      ]
+    }
+  ],
+  "options_page": "options.html",
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "scripts/css/fonts/Sign-Language.ttf",
+        "scripts/css/*",
+        "scripts/*",
+        "images/*"
+      ],
+      "matches": ["http://*/*", "https://*/*", "file://*/*"]
+    }
+  ],
+  "commands": {
+    "toggle-image-veil": {
+      "suggested_key": {
+        "default": "Alt+V",
+        "windows": "Alt+V",
+        "mac": "Alt+V",
+        "chromeos": "Alt+V",
+        "linux": "Alt+V"
+      },
+      "description": "Toggle Image Veil"
+    },
+    "toggle-highlight-words": {
+      "suggested_key": {
+        "default": "Alt+Shift+H",
+        "windows": "Alt+Shift+H",
+        "mac": "Alt+Shift+H",
+        "chromeos": "Alt+Shift+H",
+        "linux": "Alt+Shift+H"
+      },
+      "description": "Toggle Highlight Words"
+    },
+    "toggle-magnifier": {
+      "suggested_key": {
+        "default": "Alt+Shift+M",
+        "windows": "Alt+Shift+M",
+        "mac": "Alt+Shift+M",
+        "chromeos": "Alt+Shift+M",
+        "linux": "Alt+Shift+M"
+      },
+      "description": "Toggle Magnifier"
+    },
+    "toggle-emphasize-links": {
+      "suggested_key": {
+        "default": "Alt+Shift+E",
+        "windows": "Alt+Shift+E",
+        "mac": "Alt+Shift+E",
+        "chromeos": "Alt+Shift+E",
+        "linux": "Alt+Shift+E"
+      },
+      "description": "Toggle Emphasize Links"
+    }
+  }
+}
