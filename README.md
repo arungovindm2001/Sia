@@ -89,7 +89,8 @@ https://safe-api.azurewebsites.net/predict/toxic?text="you are so dumb"
 ```
 
 ## Outputs
-![georgina](https://user-images.githubusercontent.com/53506835/125807475-e8c237a8-dff9-4e13-ac9f-fbddeab5626c.jpg)
+![71cb6055-c387-4ff2-9cfe-e24c3693f7b9 (1)](https://user-images.githubusercontent.com/53506835/128630908-3af84ccf-fd16-40a0-bad0-d3ce57598500.gif)
+
 ![output-img!](https://user-images.githubusercontent.com/53506835/125807236-319d9207-8ae5-47df-978d-d44a1379ccaa.png)
 
 <!-- ROADMAP -->
