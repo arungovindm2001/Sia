@@ -9,6 +9,9 @@
   "author": "Arun Govind M, Geo Jolly, Gopikrishna K, Rishab Mudliar",
   "homepage_url": "https://github.com/arungovindm2001/xhacks",
   "short_name": "XHacks",
+  "host_permissions": [
+    "https://safe-api.azurewebsites.net/",
+  ],
   "permissions": ["activeTab", "storage", "contextMenus"],
   "action": {
     "default_popup": "popup.html",
