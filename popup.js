@@ -773,3 +773,16 @@ $("#toxicTypeButton").bind("click", function () {
 
    
 });
+
+
+$("#speechTypeButton").bind("click", function () {
+  chrome.tabs.executeScript( {
+    code: "window.getSelection().toString();"
+  }, function(selection) {
+        var text = selection;
+        var msg = new SpeechSynthesisUtterance(text);
+        window.speechSynthesis.speak(msg);
+
+    
+  });
+});
