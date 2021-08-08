@@ -150,6 +150,10 @@ $(function () {
     $("#imageVeilButton").prop("checked", stored.imageVeilButton);
   });
 
+  chrome.storage.sync.get("mallinkButton", function (stored) {
+    $("#mallinkButton").prop("checked", stored.mallinkButton);
+  });
+
   // Highlight Words Setting
   chrome.storage.sync.get("highlightWordsButton", function (stored) {
     $("#highlightWordsButton").prop("checked", stored.highlightWordsButton);
@@ -439,6 +443,20 @@ $("#imageVeilButton").bind("change", function (data) {
     ["imageVeilButton"]: $(data.target).is(":checked"),
   });
 });
+
+$("#mallinkButton").bind("change", function (data) {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {
+      todo: "mallink",
+      checkedButton: $(data.target).is(":checked") ? 1 : 0,
+    });
+  });
+  chrome.storage.sync.set({
+    ["mallinkButton"]: $(data.target).is(":checked"),
+  });
+});
+
+
 
 // Highlight Words Button
 $("#highlightWordsButton").bind("change", function (data) {

@@ -213,6 +213,22 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     }
   }
 
+  if (message.todo == "mallink") {
+    if (message.checkedButton == 0) {
+      var anchors = document.getElementsByTagName("a");
+      for (var i = 0; i < anchors.length; i++) {
+        anchors[i].classList.remove("disabled-link");
+      }
+    } else {
+      $(document).ready(function () {
+        var anchors = document.getElementsByTagName("a");
+        for (var i = 0; i < anchors.length; i++) {
+          anchors[i].classList.add("disabled-link");
+        }
+      });
+    }
+  }
+
   // Highlight Words
   if (message.todo == "highlight") {
     if (message.checkedButton == 0) {
