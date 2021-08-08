@@ -288,3 +288,19 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     window.print();
   }
 });
+function findAll(regexPattern, sourceString) {
+  let output = []
+  let match
+  let regexPatternWithGlobal = RegExp(regexPattern,[...new Set("g"+regexPattern.flags)].join(""))
+  while (match = regexPatternWithGlobal.exec(sourceString)) {
+      delete match.input
+      output.push(match)
+  } 
+  return output
+}
+chrome.runtime.onMessage.addListener(function(request,
+  sender,sendResponse){
+  var urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+  var links = findAll(urlRegex,document.documentElement.innerHTML);
+  sendResponse({data : links})
+})
