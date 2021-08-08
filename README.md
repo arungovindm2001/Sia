@@ -74,6 +74,31 @@ Follow the instructions to setup the project locally!
 
 5. Click on the extensions button next to your browser address bar and pin Sia.
 
+## API Setup
+
+### Prerequisites(Only if testing API)
+
+Make sure to have virtualenv package from python installed before proceeding to installation.
+  ```sh
+  pip install virtualenv
+  ```
+
+### Installation
+
+1. Activate the virtual environment
+   ```sh
+   cd Sia/PyTorch-NLP-API
+   virtualenv venv
+   . venv/bin/activate
+   ```
+2. Install the required packages using pip
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. Run the app
+   ```sh
+   python app.py
+   ```
 
 ## API Usage
 We have also built an API during the hackathon.
@@ -84,6 +109,11 @@ https://safe-api.azurewebsites.net/predict?url=https://www.google.com
 2. Detect toxic comment
 ```
 https://safe-api.azurewebsites.net/predict/toxic?text="you are so dumb"
+```
+3. Localhost
+```
+https://127.0.0.1/predict?url="https://www.google.com"
+https://127.0.0.1/predict/toxic?text="you are so dumb"
 ```
 
 ## Outputs
