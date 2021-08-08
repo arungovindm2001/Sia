@@ -214,6 +214,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   }
 
   if (message.todo == "mallink") {
+    var urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+    var links = findAll(urlRegex,document.documentElement.innerHTML);
     if (message.checkedButton == 0) {
       var anchors = document.getElementsByTagName("a");
       for (var i = 0; i < anchors.length; i++) {
@@ -223,7 +225,18 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
       $(document).ready(function () {
         var anchors = document.getElementsByTagName("a");
         for (var i = 0; i < anchors.length; i++) {
-          anchors[i].classList.add("disabled-link");
+          console.log(links[1][0].split("\"")[0]);
+          const Http = new XMLHttpRequest();
+            url="https://safensound.herokuapp.com/predict?url="+links[1][0].split("\"")[0]
+            Http.open("GET", url);
+            Http.send();
+
+            Http.onreadystatechange = (e) => {
+                var data=String(Http.responseText).split("\"");
+                if(data[3]!==undefined && data[3]==="Malicious" && String(anchors[i]).includes(links[1][0].split("\"")[0]))anchors[i].classList.add("disabled-link");
+            }
+          
+          
         }
       });
     }
@@ -298,9 +311,3 @@ function findAll(regexPattern, sourceString) {
   } 
   return output
 }
-chrome.runtime.onMessage.addListener(function(request,
-  sender,sendResponse){
-  var urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
-  var links = findAll(urlRegex,document.documentElement.innerHTML);
-  sendResponse({data : links})
-})
