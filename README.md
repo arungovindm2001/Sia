@@ -24,16 +24,14 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#output">Output</a></li>
+    <li><a href="#api-usage">API Usage</a></li>
+    <li><a href="#outputs">Outputs</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
@@ -89,9 +87,28 @@ https://safe-api.azurewebsites.net/predict/toxic?text="you are so dumb"
 ```
 
 ## Outputs
-![71cb6055-c387-4ff2-9cfe-e24c3693f7b9 (1)](https://user-images.githubusercontent.com/53506835/128630908-3af84ccf-fd16-40a0-bad0-d3ce57598500.gif)
+Help dyslexic people see content
 
-![output-img!](https://user-images.githubusercontent.com/53506835/125807236-319d9207-8ae5-47df-978d-d44a1379ccaa.png)
+![img1](https://user-images.githubusercontent.com/53506835/128630908-3af84ccf-fd16-40a0-bad0-d3ce57598500.gif)
+
+Convert browser text into American Sign Language
+
+![img2](https://user-images.githubusercontent.com/53506835/128631080-ed251da5-9cf7-4f28-8097-2e080369152d.gif)
+
+Use Image Veil to hide images, magnify images or highlight words
+
+![img3](https://user-images.githubusercontent.com/53506835/128631137-5a01ec4d-635d-44a3-8cea-f65d4d616621.gif)
+
+Change font color or magnify images
+
+![img4](https://user-images.githubusercontent.com/53506835/128631246-87452d5e-7d0f-4c50-8f11-4e0570d3ca7d.gif)
+
+Use Color blind mode to get color under the texts
+
+![img5](https://user-images.githubusercontent.com/53506835/128631327-059de0fd-b78c-437a-afbe-239b7abc61e2.gif)
+
+
+(View the video demo for more examples)
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -119,22 +136,3 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
-
-<!-- CONTACT -->
-## Contact
-
-Rishab Mudliar - [@cheesetaco19](https://twitter.com/cheesetaco19) - rishabmudliar@gmail.com
-
-Telegram: [lazyCodes7](https://t.me/lazyCodes7)
-
-## Usage
-
-1. Clone this repository.
-
-2. Open `chrome://extensions` within your Chrome browser.
-
-3. Enable Development Mode.
-
-4. Click on `Load unpacked` and select the cloned repository.
-
-5. Click on the extensions button next to your browser address bar and pin XHacks.
