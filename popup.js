@@ -725,7 +725,6 @@ setInterval(function () {
   }
 }, 1000);
 $("#toxicTypeButton").bind("click", function () {
-  console.log("I")
   chrome.tabs.executeScript( {
     code: "window.getSelection().toString();"
   }, function(selection) {
@@ -743,7 +742,7 @@ $("#toxicTypeButton").bind("click", function () {
           if(this.readyState === 4) {
             console.log(this.responseText);
             var parser = JSON.parse(JSON.stringify(this.responseText));
-            alert(parser.toxicity);
+            alert(parser);
             
             toxicity = parseInt(parser.toxicity);
             severe_toxicity = parseInt(parser.severe_toxicity);
