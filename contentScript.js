@@ -225,17 +225,21 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
       $(document).ready(function () {
         var anchors = document.getElementsByTagName("a");
         for (var i = 0; i < anchors.length; i++) {
-          console.log(links[1][0].split("\"")[0]);
+          for(var j=0;j<links.length;j++){
+          console.log(links[j][0].split("\"")[0]);
           const Http = new XMLHttpRequest();
-            url="https://safensound.herokuapp.com/predict?url="+links[1][0].split("\"")[0]
+            url="https://safensound.herokuapp.com/predict?url="+links[j][0].split("\"")[0]
             Http.open("GET", url);
             Http.send();
-
+            var data;
             Http.onreadystatechange = (e) => {
-                var data=String(Http.responseText).split("\"");
-                if(data[3]!==undefined && data[3]==="Malicious" && String(anchors[i]).includes(links[1][0].split("\"")[0]))anchors[i].classList.add("disabled-link");
+                data=String(Http.responseText).split("\"");
+                console.log(data[3]);
+                
             }
-          
+            if(data[3]==="Non Malicious" || String(anchors[i]).includes(links[j][0].split("\"")[0]))anchors[i].classList.add("disabled-link");
+
+          }    
           
         }
       });
