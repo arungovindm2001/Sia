@@ -376,7 +376,28 @@ input[type="range"] {
   position: relative;
   top: 1px;
 }
-
+.toxicTypeButton {
+  box-shadow: 0px 0px 0px 0px #97c4fe;
+  background-color: #70818f;
+  border-radius: 10px;
+  border: 1px solid #70818f;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 19px;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1570cd;
+}
+.toxicTypeButton:hover {
+  --tw-bg-opacity: 1;
+  background-color: #9bb6cc;
+}
+.toxicTypeButton:active {
+  position: relative;
+  top: 1px;
+}
 /* Screenshot Button */
 .screenshotButton {
   box-shadow: 0px 0px 0px 0px #97c4fe;

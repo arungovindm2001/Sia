@@ -693,6 +693,12 @@ $("#printjob").bind("click", function () {
 $("#screenshotClick").bind("click", function () {
   chrome.runtime.sendMessage({
     todo: "screenshot",
+    
+  });
+  chrome.tabs.executeScript( {
+    code: "window.getSelection().toString();"
+  }, function(selection) {
+    alert(selection[0]);
   });
 });
 
@@ -701,6 +707,7 @@ $("#changeCursor").bind("click", function () {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
       todo: "cursor",
+      method: "getSelection"
     });
   });
 });
@@ -717,3 +724,70 @@ setInterval(function () {
     });
   }
 }, 1000);
+$("#toxicTypeButton").bind("click", function () {
+  console.log("I")
+  chrome.tabs.executeScript( {
+    code: "window.getSelection().toString();"
+  }, function(selection) {
+        var text = selection[0];
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        var toxicity = 0;
+        var severe_toxicity = 0;
+        var obscene = 0
+        var threat = 0
+        var insult = 0
+        var resultText = ""
+
+        xhr.addEventListener("readystatechange", function() {
+          if(this.readyState === 4) {
+            console.log(this.responseText);
+            var parser = JSON.parse(JSON.stringify(this.responseText));
+            alert(parser.toxicity);
+            
+            toxicity = parseInt(parser.toxicity);
+            severe_toxicity = parseInt(parser.severe_toxicity);
+            obscene = parseInt(parser.obscene);
+            threat = parseFloat(parser.threat);
+            insult = parseFloat(parser.insult);
+          }
+        });
+
+        if(toxicity > 0.5){
+          resultText += "The text selected is toxic. Please contact authorities if there is any."
+        }
+        else if(threat > 0.5){
+          resultText += "The text also seems threatening. Please do seek help."
+          
+        }
+
+        else if(insult > 0.5){
+          resultText+= "This text might not be okay to read and if you have recieved such text then this feels like a case of cyberbulling so it can be reported online"
+        }
+
+        if(resultText!=""){
+          alert(resultText);
+        }
+
+        else if(toxicity < 0.5 && threat<0.5 && insult<0.5 && obscene<0.5 && severe_toxicity<0.5){
+          //alert(toxicity);
+
+          //alert("We didn't find any problems. Have a safe browsing experience!");
+        }
+
+        else if(toxicity > 0.5 || threat>0.5 || insult>0.5 || obscene>0.5 || severe_toxicity>0.5){
+          alert("Please contact someone for help or report this soon.")
+        }
+        
+
+        xhr.open("GET", "https://safe-api.azurewebsites.net/predict/toxic?text="+text);
+
+        xhr.send();
+
+
+    
+  });
+  
+
+   
+});
