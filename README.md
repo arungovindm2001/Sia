@@ -3,7 +3,7 @@
 <p align="center">
 
   <img align = "center" src="/icon.png">
-  <h3 align="center">Ethinic-API</h3>
+  <h3 align="center">Sia</h3>
 
   <p align="center">
     Sia is a browser extension that not only makes your browsing experience safe but makes it optimized
