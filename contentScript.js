@@ -224,25 +224,28 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     } else {
       $(document).ready(function () {
         var anchors = document.getElementsByTagName("a");
-        for (var i = 0; i < anchors.length; i++) {
-          for(var j=0;j<links.length;j++){
-          console.log(links[j][0].split("\"")[0]);
-          const Http = new XMLHttpRequest();
-            url="https://safensound.herokuapp.com/predict?url="+links[j][0].split("\"")[0]
-            Http.open("GET", url);
-            Http.send();
-            var data;
-            Http.onreadystatechange = (e) => {
-                data=String(Http.responseText).split("\"");
-                console.log(data[3]);
-                
-            }
-            if(data[3]==="Non Malicious" || String(anchors[i]).includes(links[j][0].split("\"")[0]))anchors[i].classList.add("disabled-link");
+        console.log(anchors);
+        var len=Math.min(anchors.length,100);
+        for (var i = 0; i < len; i++) {
+          var url=String(anchors[i]);
+          var flag=0;
+          console.log(url);
+          fetch("https://safensound.herokuapp.com/predict?url="+url).then(function(response) {
+            return response.json();
+            
+          }).then(function(data) {
+            if(data['url_type']==="Non Malicious")
+            flag=1;
+            console.log(data['url_type']==="Non Malicious");
+          }).catch(function() {
+            console.log("Booo");
+          });
+          }   
+        anchors[0].classList.add("disabled-link");
 
-          }    
           
-        }
       });
+      
     }
   }
 
