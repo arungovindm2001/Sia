@@ -27,6 +27,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#api-setup">API Setup</a></li>
     <li><a href="#api-usage">API Usage</a></li>
     <li><a href="#outputs">Outputs</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
