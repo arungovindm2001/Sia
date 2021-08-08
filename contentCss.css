@@ -9,6 +9,12 @@
   display: none;
   cursor: none;
 }
+.disabled-link {
+  pointer-events: none;
+  background-color: red;
+  padding: 3px;
+  color: black;
+}
 
 #textSelectionTooltipContainer {
   will-change: transform;

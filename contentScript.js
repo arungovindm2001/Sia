@@ -213,6 +213,39 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     }
   }
 
+  if (message.todo == "mallink") {
+    var urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+    var links = findAll(urlRegex,document.documentElement.innerHTML);
+    if (message.checkedButton == 0) {
+      var anchors = document.getElementsByTagName("a");
+      for (var i = 0; i < anchors.length; i++) {
+        anchors[i].classList.remove("disabled-link");
+      }
+    } else {
+      $(document).ready(function () {
+        var anchors = document.getElementsByTagName("a");
+        for (var i = 0; i < anchors.length; i++) {
+          for(var j=0;j<links.length;j++){
+          console.log(links[j][0].split("\"")[0]);
+          const Http = new XMLHttpRequest();
+            url="https://safensound.herokuapp.com/predict?url="+links[j][0].split("\"")[0]
+            Http.open("GET", url);
+            Http.send();
+            var data;
+            Http.onreadystatechange = (e) => {
+                data=String(Http.responseText).split("\"");
+                console.log(data[3]);
+                
+            }
+            if(data[3]==="Non Malicious" || String(anchors[i]).includes(links[j][0].split("\"")[0]))anchors[i].classList.add("disabled-link");
+
+          }    
+          
+        }
+      });
+    }
+  }
+
   // Highlight Words
   if (message.todo == "highlight") {
     if (message.checkedButton == 0) {
@@ -272,3 +305,13 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     window.print();
   }
 });
+function findAll(regexPattern, sourceString) {
+  let output = []
+  let match
+  let regexPatternWithGlobal = RegExp(regexPattern,[...new Set("g"+regexPattern.flags)].join(""))
+  while (match = regexPatternWithGlobal.exec(sourceString)) {
+      delete match.input
+      output.push(match)
+  } 
+  return output
+}

@@ -1,18 +1,18 @@
 {
-  "name": "XHacks",
-  "description": "XHacks Product",
+  "name": "Sia",
+  "description": "Change websites to your choice",
   "version": "1.0.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
   "author": "Arun Govind M, Geo Jolly, Gopikrishna K, Rishab Mudliar",
-  "homepage_url": "https://github.com/arungovindm2001/xhacks",
+  "homepage_url": "https://github.com/arungovindm2001/Sia",
   "short_name": "XHacks",
   "host_permissions": [
     "https://safe-api.azurewebsites.net/"
   ],
-  "permissions": ["activeTab", "storage", "contextMenus","tts"],
+  "permissions": ["activeTab", "storage", "contextMenus","tabs"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"

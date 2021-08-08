@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XHacks</title>
+    <title>Sia</title>
     <script src="jquery-3.1.0.min.js"></script>
     <link rel="stylesheet" href="popup.css" />
     <style>
@@ -20,7 +20,7 @@
   <body>
     <div class="header">
       <img src="/icon.png" />
-      <h1>Xhacks</h1>
+      <h1>Sia</h1>
     </div>
 
     <!-- Actions -->
@@ -110,6 +110,44 @@
         </div>
       </div>
     </div>
+
+    <div class="font-header">
+      <img src="/images/secure.png" />
+      <p>Safe Browsing</p>
+    </div>
+    <div class="focus-mode-wrapper">
+      <div class="focus-mode">
+        <div class="focus-mode-header">
+          <p>Malicious Links</p>
+          <p style="font-size: 15px">Enable to highlight malicious links.</p>
+        </div>
+        <div>
+          <label class="switch">
+            <input type="checkbox" id="mallinkButton" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="focus-mode-wrapper">
+      <div class="focus-mode">
+        <div class="focus-mode-header">
+          <p>Predict toxic behaviour</p>
+          <p style="font-size: 15px">Select a text to get started.</p>
+        </div>
+        <div style="margin-right: 48px">
+          <label class="button-switch">
+            <input
+              type="button"
+              class="toxicTypeButton"
+              id="toxicTypeButton"
+              value="Predict"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Font Color -->
     <div class="font-header">
@@ -357,7 +395,7 @@
     <div class="focus-mode-wrapper">
       <div class="focus-mode">
         <div class="focus-mode-header">
-          <p>Predict toxic behaviour</p>
+          <p>Convert speech to text</p>
           <p style="font-size: 15px">Select a text to get started.</p>
         </div>
         <div style="margin-right: 48px">
@@ -373,7 +411,7 @@
       </div>
     </div>
     <div id="snackbar">
-      To enable Voice Recognition right click on XHacks and click on Options
+      To enable Voice Recognition right click on Sia and click on Options
     </div>
   </body>
   <script src="popup.js"></script>
