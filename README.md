@@ -46,9 +46,9 @@ The idea came to us from some previous projects about making a browser extension
 
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 * [PyTorch](https://pytorch.org/)
-* [JavaScript]()
-* [NumPy]()
-* [Pandas]()
+* [JavaScript](https://www.javascript.com/)
+* [NumPy](https://numpy.org/)
+* [Pandas](https://pandas.pydata.org/)
 
 
 
