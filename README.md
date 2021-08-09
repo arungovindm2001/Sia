@@ -64,7 +64,7 @@ Follow the instructions to setup the project locally!
 
 1. Clone this repository.
    ```sh
-   git clone https://github.com/lazyCodes7/EthinicAPI.git
+   git clone https://github.com/arungovindm2001/Sia.git
    ```
 
 2. Open `chrome://extensions` within your Chrome browser.
